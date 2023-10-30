@@ -1,4 +1,4 @@
-const Picture = require("../models/profile");
+const Picture = require("../models/picture");
 
 async function index(req, res) {
   const pictures = await Picture.find({});
@@ -8,8 +8,8 @@ async function index(req, res) {
 async function create(req, res) {
   try {
     const picture = await Picture.create(req.body);
-    // Redirect to the new movie's show functionality
-    res.redirect(`/pictures/index`);
+    // Redirect to the new picture's show functionality
+    res.redirect(`pictures/${picture._id}`);
   } catch (err) {
     // Typically some sort of validation error
     console.log(err);
@@ -17,4 +17,12 @@ async function create(req, res) {
   }
 }
 
-module.exports = { index, create };
+function newPicture(req, res) {
+  res.render("pictures/new", {
+    user: req.user,
+    title: "Welcome to SocialSnap!",
+    errorMsg: "",
+  });
+}
+
+module.exports = { index, create, new: newPicture };

@@ -12,7 +12,7 @@ const userSchema = new Schema(
     avatar: String,
   },
   {
-    timestamps: trusted,
+    timestamps: true,
   }
 );
 

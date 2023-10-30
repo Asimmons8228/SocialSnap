@@ -11,8 +11,13 @@ const commentSchema = new Schema(
     Date: {
       type: Date,
     },
-    profileName: { type: String, ref: "User" },
-    profileAvatar: { type: String, ref: "User" },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    userName: { type: String, ref: "User" },
+    userAvatar: { type: String, ref: "User" },
   },
   { timestamps: true }
 );
@@ -26,5 +31,4 @@ const picSchema = new Schema({
   comments: [commentSchema],
 });
 
-const Picture = mongoose.model("Picture", picSchema);
-module.exports = { Picture };
+module.exports = mongoose.model("Picture", picSchema);

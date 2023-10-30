@@ -10,8 +10,9 @@ var passport = require("passport");
 require("dotenv").config();
 // connect to the database with AFTER the config vars are processed
 require("./config/database");
+require("./config/passport");
 
-var indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index");
 const commentsRouter = require("./routes/comments");
 const picturesRouter = require("./routes/pictures");
 
@@ -34,20 +35,21 @@ app.use(
     resave: false,
     saveUninitialized: true,
   })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-// app.use(function (res, res, next) {
-//   res.locals.user = req.user;
-//   next();
-// });
-// catch 404 and forward to error handler
-// app.use(function (req, res, next) {
-//   next(createError(404));
-// });
+  );
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
+  app.use(function (req, res, next) {
+    res.locals.user = req.user;
+    next();
+  });
 app.use("/", indexRouter);
 app.use("/pictures", picturesRouter);
 app.use("/", commentsRouter);
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function (err, req, res, next) {

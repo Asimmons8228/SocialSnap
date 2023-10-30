@@ -1,4 +1,4 @@
-const Picture = require("../models/profile");
+const Picture = require("../models/picture");
 
 module.exports = {
   create,
@@ -10,7 +10,7 @@ async function create(req, res) {
   req.nody.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
   // We can push (or unshift) subdocs into Mongoose arrays
-  picture.reviews.push(req.body);
+  picture.comments.push(req.body);
   try {
     // Save any changes made to the movie doc
     await picture.save();

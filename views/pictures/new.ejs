@@ -1,11 +1,20 @@
 <%- include('../partials/header') %>
 <form id="new-form" action="/pictures" method="POST">
-  <label>Select Profile Name: </label>
-  <input type="text" name="profileName" />
-  <label>Select Avatar Picture URL :</label>
-  <input type="text" name="profileAvatar" />
-  <label>Upload Photo URL</label>
-  <input type="url" name="piccontent" />
+  <div class="card centered-card">
+    <h5 class="card-header">Create Profile!</h5>
+  <div class="input-group mb-3" style="padding-top: 20px; padding-bottom: 5px;">
+    <input type="text" class="form-control" placeholder="Select Username" aria-label="Select Username" name="profileName">
+  </div>
+  <div class="input-group mb-3" style="padding-top: 5px; padding-bottom: 5px;">
+    <label class="input-group-text" for="inputGroupFile01">Upload Profile Avatar</label>
+    <input type="file" class="form-control" id="inputGroupFile01" name="profileAvatar" />
+  </div>
+  <div class="input-group mb-3" style="padding-top: 5px; padding-bottom: 10px;">
+    <label class="input-group-text" for="inputGroupFile01">Upload SnapShot</label>
+    <input type="file" class="form-control" id="inputGroupFile01" name="piccontent">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 </form>
 
 <%- include('../partials/footer') %>

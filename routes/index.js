@@ -4,7 +4,7 @@ const passport = require("passport");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.redirect("index", { title: "Welcome to Social Snap" });
+  res.render("index", { user: null, title: "Welcome to Social Snap" });
 });
 
 router.get(
@@ -18,7 +18,7 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/pictures/index",
+    successRedirect: "/pictures/new",
     //change to what's best for my app
     failureRedirect: "/",
   })
