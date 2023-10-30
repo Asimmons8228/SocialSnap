@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+<form id="new-form" action="/pictures" method="POST">
+  <label>Select Profile Name: </label>
+  <input type="text" name="profileName" />
+  <label>Select Avatar Picture URL :</label>
+  <input type="text" name="profileAvatar" />
+  <label>Upload Photo URL</label>
+  <input type="url" name="piccontent" />
+</form>
+
+<%- include('../partials/footer') %>
