@@ -16,19 +16,24 @@ const commentSchema = new Schema(
       ref: "User",
       required: true,
     },
-    userName: { type: String, ref: "User" },
-    userAvatar: { type: String, ref: "User" },
   },
   { timestamps: true }
+);
+
+const profileschema = new Schema(
+  {
+  name: { type: String, required: true},
+  avatar: { type: Image, required: true},
+  user: { type: Schema.Types.ObjectId, ref: "User", required: true, },
+  }
 );
 
 const picSchema = new Schema({
   piccontent: { type: String, required: true },
   caption: { type: String, required: true },
   likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  postedBy: { type: Schema.Types.ObjectId, ref: "User" },
-  profileAvatar: { type: String, ref: "User" },
   comments: [commentSchema],
 });
 
 module.exports = mongoose.model("Picture", picSchema);
+module.exports= mongoose.model("Profile", profileschema);

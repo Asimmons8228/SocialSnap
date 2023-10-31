@@ -1,20 +1,23 @@
 <%- include('../partials/header') %>
+<div class="hero-image">
 <form id="new-form" action="/pictures" method="POST">
-  <div class="card centered-card">
+  <div class="card centered-card w-50">
     <h5 class="card-header">Create Profile!</h5>
-  <div class="input-group mb-3" style="padding-top: 20px; padding-bottom: 5px;">
-    <input type="text" class="form-control" placeholder="Select Username" aria-label="Select Username" name="profileName">
+  <div class="input-group mb-3 " style="padding-top: 20px; padding-bottom: 5px;">
+    <input type="text" class="form-control" placeholder="Select Username" aria-label="Select Username" name="name">
   </div>
   <div class="input-group mb-3" style="padding-top: 5px; padding-bottom: 5px;">
-    <label class="input-group-text" for="inputGroupFile01">Upload Profile Avatar</label>
-    <input type="file" class="form-control" id="inputGroupFile01" name="profileAvatar" />
+    <input type="text" class="form-control" placeholder="Avatar URL" aria-label="Select Profile Avatar" name="avatar">
   </div>
   <div class="input-group mb-3" style="padding-top: 5px; padding-bottom: 10px;">
-    <label class="input-group-text" for="inputGroupFile01">Upload SnapShot</label>
-    <input type="file" class="form-control" id="inputGroupFile01" name="piccontent">
+    <input type="text" class="form-control" placeholder="Picture URL" aria-label="Provide Profile Image" name="piccontent">
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <div class="input-group mb-3" style="padding-top: 5px; padding-bottom: 10px;">
+    <input type="text" class="form-control" placeholder="Picture Caption" aria-label="Provide Image Caption" name="caption">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit Form</button>
   </div>
 </form>
+</div>
 
 <%- include('../partials/footer') %>

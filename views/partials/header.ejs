@@ -9,14 +9,22 @@
 </head>
 <body>
     <nav class="navbar navbar-container" style="background-color: #e3f2fd;">
-        <img src="/images/camera.svg">
-        <a href="/pictures/" <%- title === 'Snapshots' ? 'class="active"' : '' %>>ALL Snapshots</a>
+      <img src="https://icons.iconarchive.com/icons/iconarchive/outline-camera/512/Flat-Red-Big-Camera-icon.png" id="camera">
+    <div class="box">
+        <a href="/pictures/" <%- title === 'Snapshots' ? 'class="active"' : '' %>>ALL SNAPSHOTS</a>
+      </div>
         <% if (user) { %>
+        <div class="box">
           <a href="/pictures/new"	<%- title === 'Add Snapshot' ? 'class="active"' : '' %>>
           ADD SNAPSHOT</a>
+        </div>
+        <div class="box">
           <a href="/logout">LOG OUT</a>
+        </div>
         <% } else { %>
+        <div class="box">
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" width="40" height="40" style="object-fit: contain;"></a>
+        </div>
         <% } %>
       </nav>
     

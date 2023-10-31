@@ -1,11 +1,12 @@
-<%- include('./partials/header') %> <% pictures.forEach(function(p){%>
+<%- include('../partials/header') %> 
+<% pictures.forEach(function(p){%>
 <div class="pic-container">
-  <img src="<%=p.piccontent" alt="" />
+  <img src="<%=p.piccontent%>" alt="" />
   <p class="caption"><%= p.caption %></p>
 </div>
 <div class="comment-container">
   <% picture.comments.forEach(function(comment){%>
-  <p><%= comment.content></p>
+  <p><%= comment.content%></p>
   <%})%>
   <form
     id="'add-comment-formn"
