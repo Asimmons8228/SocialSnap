@@ -20,20 +20,15 @@ const commentSchema = new Schema(
   { timestamps: true }
 );
 
-const profileschema = new Schema(
-  {
-  name: { type: String, required: true},
-  avatar: { type: Image, required: true},
-  user: { type: Schema.Types.ObjectId, ref: "User", required: true, },
-  }
-);
+
 
 const picSchema = new Schema({
   piccontent: { type: String, required: true },
   caption: { type: String, required: true },
   likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  user: { type: Schema.Types.ObjectId, ref: "User", required: true, },
   comments: [commentSchema],
 });
 
 module.exports = mongoose.model("Picture", picSchema);
-module.exports= mongoose.model("Profile", profileschema);
+
